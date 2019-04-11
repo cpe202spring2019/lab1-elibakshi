@@ -65,6 +65,15 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(tlist) - 1
         self.assertEqual(bin_search(5, low, high, tlist), 0)
+        tlist = [0, 1, 2, 3, 4, 7, 8, 9, 10]  # if not found should return None
+        low = 0
+        high = len(tlist) - 1
+        self.assertEqual(bin_search(11, low, high, tlist), None)
+        tlist = None
+        low = 0
+        high = 1
+        with self.assertRaises(ValueError):  # test for None int_list exception
+            bin_search(14, low, high, tlist)
 
 
 if __name__ == "__main__":
